@@ -1,0 +1,385 @@
+body 
+  background: #151515
+  font-family: sans-serif
+  margin: 0
+  padding: 0
+
+
+.dino-container 
+  max-width: 600px
+  width: 100%
+  margin: 0 auto
+  border: 2px solid #949494
+  box-sizing: border-box
+
+
+.dino 
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  margin: 15px 5px
+
+
+.dino>div 
+  margin: 4px 4px
+
+
+.dino.turned-off 
+  opacity: 0.25
+
+
+.dino.time-warning span
+  color: red
+
+.dino-avatar 
+  width: 50px
+  height: 50px
+  cursor: pointer
+
+
+/*------------------------- Avatar -------------------------*/
+.dino-navy .dino-avatar 
+  background-color: #2929ff
+
+
+.dino-pink .dino-avatar 
+  background-color: #bb06bb
+
+
+.dino-skyblue .dino-avatar 
+  background-color: #46b3e0
+
+
+.dino-green .dino-avatar 
+  background-color: #00c700
+
+
+.dino-yellow .dino-avatar 
+  background-color: #d2d203
+
+
+.dino-red .dino-avatar 
+  background-color: #de0000
+
+
+/*------------------------- Button -------------------------*/
+
+.button-container 
+  flex-basis: 90px
+  display: flex
+
+
+button 
+  width: 100%
+  border: none
+  font-size: 26px
+  color: #dddfff
+  text-transform: lowercase
+  cursor: pointer
+
+
+.dino button:focus 
+  outline: none
+
+
+.dino-navy button 
+  background-color: #2929ff
+
+
+.dino-navy button:active 
+  background-color: #1515c7
+
+
+.dino-pink button 
+  background-color: #bb06bb
+
+
+.dino-pink button:active 
+  background-color: #8e078e
+
+
+.dino-skyblue button 
+  background-color: #46b3e0
+
+
+.dino-skyblue button:active 
+  background-color: #3292b9
+
+
+.dino-green button 
+  background-color: #00c700
+
+
+.dino-green button:active 
+  background-color: #009c00
+
+
+.dino-yellow button 
+  background-color: #d2d203
+
+
+.dino-yellow button:active 
+  background-color: #a9a900
+
+
+.dino-red button 
+  background-color: #de0000
+
+
+.dino-red button:active 
+  background-color: #a90000
+
+
+/*------------------------- Timer -------------------------*/
+.timer 
+  display: flex
+  position: relative
+  box-sizing: border-box
+  margin-left: 2px
+  align-content: center
+  justify-content: center
+  flex-wrap: wrap
+  flex-basis: 292px
+  overflow: hidden
+  background-color: #9a9a9a
+
+
+.dino.preparing .timer span, .dino.awaiting .timer span
+  color: red
+
+
+.dino-navy.preparing .timer
+  box-shadow: 2px 0 7px #2929ff, -2px 0 7px #2929ff, 0 2px 7px #2929ff, 0 -2px 7px #2929ff
+
+
+.dino-navy.awaiting .timer
+  animation: navy-prepare 1.2s linear infinite
+
+
+@keyframes navy-prepare 
+  0% 
+    box-shadow: 2px 0 7px #2929ff47, -2px 0 7px #2929ff47, 0 2px 7px #2929ff47, 0 -2px 7px #2929ff47
+  
+
+  50% 
+    box-shadow: 2px 0 7px #2929ff, -2px 0 7px #2929ff, 0 2px 7px #2929ff, 0 -2px 7px #2929ff
+  
+
+  100% 
+    box-shadow: 2px 0 7px #2929ff47, -2px 0 7px #2929ff47, 0 2px 7px #2929ff47, 0 -2px 7px #2929ff47
+  
+.dino-pink.preparing .timer
+  box-shadow: 2px 0 7px #bb06bb, -2px 0 7px #bb06bb, 0 2px 7px #bb06bb, 0 -2px 7px #bb06bb
+
+.dino-pink.awaiting .timer
+  animation: pink-prepare 1.2s linear infinite
+
+
+@keyframes pink-prepare 
+  0% 
+    box-shadow: 2px 0 7px #bb06bb40, -2px 0 7px #bb06bb40, 0 2px 7px #bb06bb40, 0 -2px 7px #bb06bb40
+  
+
+  50% 
+    box-shadow: 2px 0 7px #bb06bb, -2px 0 7px #bb06bb, 0 2px 7px #bb06bb, 0 -2px 7px #bb06bb
+  
+
+  100% 
+    box-shadow: 2px 0 7px #bb06bb40, -2px 0 7px #bb06bb40, 0 2px 7px #bb06bb40, 0 -2px 7px #bb06bb40
+  
+.dino-skyblue.preparing .timer
+  box-shadow: 2px 0 7px #46b3e0, -2px 0 7px #46b3e0, 0 2px 7px #46b3e0, 0 -2px 7px #46b3e0
+
+.dino-skyblue.awaiting .timer
+  animation: skyblue-prepare 1.2s linear infinite
+
+
+@keyframes skyblue-prepare 
+  0% 
+    box-shadow: 2px 0 7px #46b3e040, -2px 0 7px #46b3e040, 0 2px 7px #46b3e040, 0 -2px 7px #46b3e040
+  
+
+  50% 
+    box-shadow: 2px 0 7px #46b3e0, -2px 0 7px #46b3e0, 0 2px 7px #46b3e0, 0 -2px 7px #46b3e0
+  
+
+  100% 
+    box-shadow: 2px 0 7px #46b3e040, -2px 0 7px #46b3e040, 0 2px 7px #46b3e040, 0 -2px 7px #46b3e040
+  
+
+
+.dino-green.preparing .timer
+  box-shadow: 2px 0 7px #00c700, -2px 0 7px #00c700, 0 2px 7px #00c700, 0 -2px 7px #00c700
+
+
+.dino-green.awaiting .timer
+  animation: green-prepare 1.2s linear infinite
+
+
+@keyframes green-prepare 
+  0% 
+    box-shadow: 2px 0 7px #00c7002b, -2px 0 7px #00c7002b, 0 2px 7px #00c7002b, 0 -2px 7px #00c7002b
+  
+
+  50% 
+    box-shadow: 2px 0 7px #00c700, -2px 0 7px #00c700, 0 2px 7px #00c700, 0 -2px 7px #00c700
+  
+
+  100% 
+    box-shadow: 2px 0 7px #00c7002b, -2px 0 7px #00c7002b, 0 2px 7px #00c7002b, 0 -2px 7px #00c7002b
+  
+
+
+.dino-yellow.preparing .timer
+  box-shadow: 2px 0 7px #d2d203, -2px 0 7px #d2d203, 0 2px 7px #d2d203, 0 -2px 7px #d2d203
+
+
+.dino-yellow.awaiting .timer
+  animation: yellow-prepare 1.2s linear infinite
+
+
+@keyframes yellow-prepare 
+  0% 
+    box-shadow: 2px 0 7px #d2d2034d, -2px 0 7px #d2d2034d, 0 2px 7px #d2d2034d, 0 -2px 7px #d2d2034d
+  
+
+  50% 
+    box-shadow: 2px 0 7px #d2d203, -2px 0 7px #d2d203, 0 2px 7px #d2d203, 0 -2px 7px #d2d203
+  
+
+  100% 
+    box-shadow: 2px 0 7px #d2d2034d, -2px 0 7px #d2d2034d, 0 2px 7px #d2d2034d, 0 -2px 7px #d2d2034d
+  
+
+
+.dino-red.preparing .timer
+  box-shadow: 2px 0 7px #de0000, -2px 0 7px #de0000, 0 2px 7px #de0000, 0 -2px 7px #de0000
+
+
+.dino-red.awaiting .timer
+  animation: red-prepare 1.2s linear infinite
+
+
+@keyframes red-prepare 
+  0% 
+    box-shadow: 2px 0 7px #de00004d, -2px 0 7px #de00004d, 0 2px 7px #de00004d, 0 -2px 7px #de00004d
+  
+
+  50% 
+    box-shadow: 2px 0 7px #de0000, -2px 0 7px #de0000, 0 2px 7px #de0000, 0 -2px 7px #de0000
+  
+
+  100% 
+    box-shadow: 2px 0 7px #de00004d, -2px 0 7px #de00004d, 0 2px 7px #de00004d, 0 -2px 7px #de00004d
+  
+
+
+/*------------------------- Timelapse -------------------------*/
+.timelapse 
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: 1
+  &.preparing
+    background-color: #5d5d5d !important
+
+
+.dino-navy .timelapse 
+  background-color: #2929ff
+
+
+.dino-pink .timelapse 
+  background-color: #bb06bb
+
+
+.dino-skyblue .timelapse 
+  background-color: #46b3e0
+
+
+.dino-green .timelapse 
+  background-color: #00c700
+
+
+.dino-yellow .timelapse 
+  background-color: #d2d203
+
+
+.dino-red .timelapse 
+  background-color: #de0000
+
+
+.preparing .timelapse 
+  background-color: #4e4e4e
+
+
+
+.timer .time,
+.kill-time,
+button 
+  position: relative
+  font-weight: bold
+  color: white
+  font-size: 35px
+  text-shadow: 1px 1px black
+
+
+.timer .time 
+  z-index: 100
+
+
+.kill-time-container 
+  display: flex
+
+
+
+.kill-time-container .kill-time 
+  box-sizing: border-box
+  max-width: 110px
+  background-color: #9a9a9a
+  border: none
+  text-align: center
+
+
+@media screen and (max-width: 605px) 
+  .dino 
+    margin: 10px 5px
+  
+
+  .timer 
+    order: -1
+    flex-basis: 100%
+    height: 35px
+    & .time
+      margin-top: -3px
+  
+
+  .dino-avatar 
+    width: 35px
+    height: 35px
+  
+
+  .kill-time-container 
+
+  .button-container 
+    flex-grow: 1
+  
+
+  .kill-time,
+  button,
+  .timer .time,
+  .time>span 
+    font-size: 25px
+  
+
+  .kill-time 
+    max-width: 30%
+    flex-basis: 30%
+    padding-top: 0
+    padding-bottom: 0
+  
+
+  button 
+    height: 35px
+  
