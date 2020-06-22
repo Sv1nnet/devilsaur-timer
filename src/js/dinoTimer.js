@@ -82,20 +82,13 @@ class DinoTimer {
     this.state.awaiting = false;
   }
 
-  setTimeLeft() {
-    // this.timers
-  }
-
-  validate(time) {
-
-  }
-
   startTimer() {
-    // debugger;
     const animationStep = 200;
     const currentDate = new Date();
     const dateNowInMs = currentDate.getTime();
-    const isTimeSetNow = this.elements.killTimeInput.value === '--:--' || this.elements.killTimeInput.value === this.state.prevDeathTime || this.elements.killTimeInput.value === '';
+    const isTimeSetNow = this.elements.killTimeInput.value === '--:--'
+      || this.elements.killTimeInput.value === this.state.prevDeathTime
+      || this.elements.killTimeInput.value === '';
 
     const deathTime = this._getDeathTime(currentDate, isTimeSetNow);
     const timePassedInMs = DinoTimer._getTimePassedInMs(deathTime);
@@ -120,50 +113,31 @@ class DinoTimer {
         this.setSpawningStatus(awaitingTimeInMs + SPAWN_TIME_IN_MS - timePassedInMs);
       }
     }
-// debugger;
+
     this._setWaitingInterval(animationStep);
-    // console.log(this);
   }
 
   _setWaitingInterval(animationStep) {
-    
-    // if ((this.timers.awaiting + SPAWN_TIME_IN_MS - Date.now()) <= 0) return;
     this.intervals.waitingInterval = setInterval(() => {
       const currentTimeInMs = Date.now();
       const timeLeftInMs = this.timers.awaiting - currentTimeInMs;
 
-      // this.timers.awaiting -= animationStep;
-
       this._moveTimeLapse(timeLeftInMs, WAITING_TIME_IN_MS);
       this._updateTimeLeft(timeLeftInMs, WAITING_TIME_IN_MS);
 
-      // If waiting time less than 30s then set time color warning
       if (!this.state.preparing && (this.timers.awaiting - currentTimeInMs) <= 30000) {
         this._setPreparingStatus();
       } else if (this.state.preparing && (this.timers.awaiting - currentTimeInMs) > 30000) {
-        // this.timers.removeHalfMinPrepColor();
       }
 
       if ((this.timers.awaiting - currentTimeInMs) <= 0) {
-        // console.log(this.timers.awaiting)
-        // console.log(this.timers.awaiting - currentTimeInMs)
-        // console.log('(this.timers.awaiting - currentTimeInMs)')
         clearInterval(this.intervals.waitingInterval);
-
-        // this.timers.resetResp();
-        // this.state.preparing = false;
-
-        // this.timers.startRespTimer();
-        // this.state.preparing = true;
-
         this._setSpawnInterval(animationStep);
       }
     }, animationStep);
   }
 
   _setSpawnInterval(animationStep) {
-    // this.elements.timeLapse.style.left = '0%';
-    // this.elements.timeLapse.classList.add(PREPARING);
     const spawningTimeInMs = this.timers.awaiting + SPAWN_TIME_IN_MS;
     this.setSpawningStatus(spawningTimeInMs);
     this._setSpawningStyle(spawningTimeInMs);
@@ -178,8 +152,6 @@ class DinoTimer {
       if ((this.timers.spawning - currentTimeInMs) <= 0) {
         clearInterval(this.intervals.spawnInterval);
         this.elements.timeSpan.innerText = '00:00';
-        // this.timers.resetPreparing();
-        // this.state.preparing = false;
       }
     }, animationStep);
   }
@@ -187,7 +159,6 @@ class DinoTimer {
   _moveTimeLapse(timeLeftInMs, totalTimeInMs, debug) {
     if (debug) debugger;
     this.state.timeLapsePosition = 100 - (timeLeftInMs / totalTimeInMs * 100);
-    // console.log(this.state.timeLapsePosition)
     this.elements.timeLapse.style.left = `${this.state.timeLapsePosition}%`;
   }
 
@@ -200,7 +171,6 @@ class DinoTimer {
     if (secondsLeft < 10) secondsLeft = `0${secondsLeft < 0 ? 0 : secondsLeft}`;
 
     this.elements.timeSpan.innerText = `${minutesLeft}:${secondsLeft}`;
-    // }
   }
 
   resetTimer() {
@@ -259,21 +229,9 @@ class DinoTimer {
       } else {
         hours = serverHours;
       }
-      // if (currentDate.getHours().toString().length < 2) {
-      //   hours =  `0${currentDate.getHours()}`;
-      // } else {
-      //   hours = currentDate.getHours();
-      // }
     }
 
     const deathTime = `${hours}:${minutes}`;
-    // const deathDate = currentDate.toString()
-    //   .split(' ')
-    //   .map((datePiece) => {
-    //     if (datePiece.includes(':')) return `${deathTime}:00`;
-    //     return datePiece;
-    //   })
-    //   .join(' ');
 
     return { timeStr: deathTime, date: currentDate };
   }
